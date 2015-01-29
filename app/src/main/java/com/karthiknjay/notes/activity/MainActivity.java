@@ -1,9 +1,12 @@
-package com.karthiknjay.notes;
+package com.karthiknjay.notes.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.karthiknjay.notes.R;
+import com.karthiknjay.notes.widgets.AboutDialog;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -28,12 +31,13 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.action_about:
+                new AboutDialog().show(getFragmentManager(), "dialog_notice");
+                return true;
+            default: return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

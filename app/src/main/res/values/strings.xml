@@ -4,5 +4,7 @@
     <string name="app_name">Notes</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_about">About Notes</string>
+    <string name="copyright_info">No Copyrights or Copylefts!! \n\nKarthikeyan J</string>
 
 </resources>
