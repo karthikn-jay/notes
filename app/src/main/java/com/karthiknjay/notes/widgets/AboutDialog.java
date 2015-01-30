@@ -27,6 +27,7 @@ public class AboutDialog extends DialogFragment {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         try {
             String versionName = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0).versionName;
+            Log.i("Notes", "versionName:"+versionName);
             //versionText.setText(getString(R.string.version_format, versionName));
         } catch (PackageManager.NameNotFoundException ex) {
             //Log.e(TAG, "Couldn't find version name", ex);
