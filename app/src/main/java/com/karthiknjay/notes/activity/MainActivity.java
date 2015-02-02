@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.karthiknjay.notes.R;
 import com.karthiknjay.notes.fragment.SettingsFragment;
@@ -39,8 +40,11 @@ public class MainActivity extends ActionBarActivity {
         switch (id) {
             case R.id.action_settings:
                 // Display the fragment as the main content.
+                //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
                 Intent settingsIntent = new Intent();
                 settingsIntent.setClass(MainActivity.this, SettingsActivity.class);
+
                 startActivityForResult(settingsIntent, 0);
                 return true;
             case R.id.action_about:
