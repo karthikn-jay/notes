@@ -1,5 +1,6 @@
 package com.karthiknjay.notes.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.karthiknjay.notes.R;
 import com.karthiknjay.notes.fragment.SettingsFragment;
@@ -43,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_search:
+                openSearch();
                 return true;
             case R.id.action_settings:
                 // Display the fragment as the main content.
@@ -58,6 +61,15 @@ public class MainActivity extends ActionBarActivity {
                 return true;
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void openSearch() {
+        Context context = getApplicationContext();
+        CharSequence text = "Under contruction...";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     @Override
