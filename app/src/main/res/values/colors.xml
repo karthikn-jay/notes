@@ -2,7 +2,8 @@
 <resources>
     <color name="disabled_text">#9FFF</color>
     <color name="actionbar">#6CD5F8</color>
-    <color name="actionbar2">#7C83E8</color>
-    <color name="actionbar3">#CACCED</color>
+    <color name="actionbar2">#7C83E8</color> <!-- light blue -->
+    <color name="actionbar3">#CACCED</color> <!-- very light blue -->
+    <color name="actionbar4">#FFA500</color> <!-- orange -->
     <color name="background">#111</color>
 </resources>

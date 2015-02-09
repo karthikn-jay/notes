@@ -10,20 +10,37 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
 import com.karthiknjay.notes.R;
 import com.karthiknjay.notes.fragment.SettingsFragment;
 import com.karthiknjay.notes.widgets.AboutDialog;
+import com.shamanland.fab.FloatingActionButton;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addButton = (FloatingActionButton) findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openEditActivity();
+            }
+        });
+    }
+
+    private void openEditActivity() {
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivity(intent);
     }
 
 

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- theme applied to the application or activity -->
-    <style name="CustomActionBarTheme"
+    <style name="AppTheme"
         parent="@style/Theme.AppCompat.Light">
         <!--item name="android:actionBarStyle" tools:ignore="NewApi">@style/MyActionBar</item>
         <item name="actionBarStyle">@style/MyActionBar</item-->
@@ -12,6 +12,19 @@
         <!-- from sdk 21, just add below lines, no need to create separate MyActionBar style -->
         <item name="colorPrimary">@color/actionbar2</item>
         <item name="colorPrimaryDark">@color/actionbar3</item>
+
+        <!-- Window overlay, transparent background on scroll up -->
+        <item name="android:windowActionBarOverlay">false</item>
+
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">false</item>
+
+        <!-- Floating action button style -->
+        <item name="floatingActionButtonStyle">@style/AppTheme.Fab</item>
+    </style>
+
+    <style name="AppTheme.Fab" parent="FloatingActionButton">
+        <item name="floatingActionButtonColor">@color/actionbar2</item>
     </style>
 
     <style name="MyActionBar"
