@@ -3,7 +3,6 @@ package com.karthiknjay.notes.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Window;
 
 import com.karthiknjay.notes.fragment.SettingsFragment;
 
@@ -19,10 +18,11 @@ public class SettingsActivity extends ActionBarActivity {
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
 
         // show title
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        //getSupportActionBar().setDisplayShowTitleEnabled(true);
         // show back/up button
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // appcompat with ActionBarActivity
+        //getActionBar().setDisplayHomeAsUpEnabled(true); // for 11 and up
     }
 }

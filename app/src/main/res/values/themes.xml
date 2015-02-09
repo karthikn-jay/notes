@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- theme applied to the application or activity -->
+    <style name="CustomActionBarTheme"
+        parent="@style/Theme.AppCompat.Light">
+        <!--item name="android:actionBarStyle" tools:ignore="NewApi">@style/MyActionBar</item>
+        <item name="actionBarStyle">@style/MyActionBar</item-->
+
+        <!-- from sdk 21, just add below lines, no need to create separate MyActionBar style -->
+        <item name="colorPrimary">@color/actionbar2</item>
+        <item name="colorPrimaryDark">@color/actionbar3</item>
+    </style>
+
+    <style name="MyActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!--item name="android:background">@drawable/actionbar_background</item-->
+        <item name="android:background" tools:ignore="NewApi">@color/actionbar</item>
+        <item name="background">@color/actionbar</item>
+    </style>
+
+</resources>
