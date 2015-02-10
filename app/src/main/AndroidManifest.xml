@@ -3,7 +3,7 @@
     package="com.karthiknjay.notes" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
     <application

@@ -6,21 +6,35 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.karthiknjay.notes.R;
 import com.karthiknjay.notes.fragment.SettingsFragment;
+import com.karthiknjay.notes.model.Note;
+import com.karthiknjay.notes.model.NoteAdapter;
 import com.karthiknjay.notes.widgets.AboutDialog;
 import com.shamanland.fab.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    RecyclerView listView;
+
+    TextView noNotesTxt;
 
     FloatingActionButton addButton;
 
@@ -29,6 +43,41 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        listView = (RecyclerView) findViewById(R.id.listMain);
+        listView.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listView.setLayoutManager(llm);
+
+        noNotesTxt = (TextView) findViewById(R.id.no_notes);
+
+        String[] items = {"Milk", "Butter", "Yogurt", "Cheese", "Ice Cream"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+
+        Note[] items2 = {
+            new Note(1, "Milk", "milk content"),
+            new Note(2, "Butter", "butter content"),
+            new Note(3, "Yogurt", "yogurt content"),
+            new Note(4, "Cheese", "cheese content"),
+            new Note(5, "Ice cream", "icecream content")
+        };
+        ArrayAdapter<Note> adapter2 = new ArrayAdapter<Note>(this, android.R.layout.simple_list_item_1, items2);
+
+        //listView.setAdapter(adapter);
+        //listView.setAdapter(adapter2);
+
+        NoteAdapter noteAdapter = new NoteAdapter(createList(20));
+        listView.setAdapter(noteAdapter);
+
+        //if( !listView.getAdapter().isEmpty() ) {
+          //  noNotesTxt.setVisibility(View.GONE);
+        //}
+        if(noteAdapter.getItemCount() == 0) {
+            noNotesTxt.setVisibility(View.VISIBLE);
+        } else {
+            noNotesTxt.setVisibility(View.GONE);
+        }
+
         addButton = (FloatingActionButton) findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +85,17 @@ public class MainActivity extends ActionBarActivity {
                 openEditActivity();
             }
         });
+    }
+
+    private List<Note> createList(int size) {
+
+        List<Note> result = new ArrayList<Note>();
+        for (int i=1; i <= size; i++) {
+            Note ci = new Note(i, "title" + i, "content" + i);
+            result.add(ci);
+        }
+
+        return result;
     }
 
     private void openEditActivity() {

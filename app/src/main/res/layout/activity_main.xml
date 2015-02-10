@@ -18,13 +18,20 @@
         android:layout_alignParentRight="true"
         style="?android:borderlessButtonStyle"/-->
 
-    <ListView
-        android:id="@+id/listMain"
+    <!--ListView
+        android:id="@+id/listMain2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:divider="@android:color/transparent"/>
+        android:divider="@android:color/transparent"/-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <TextView
+        android:id="@+id/no_notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
